@@ -13,6 +13,7 @@ public class LauncherScript : MonoBehaviourPunCallbacks
     public Vector3 min = new Vector3(-5, 0, 0);
     public Vector3 max = new Vector3(5, 0, 7);
     public GameObject thePlayer;
+    public GameObject chat;
 
     // Start is called before the first frame update
     void Start()
@@ -35,15 +36,13 @@ public class LauncherScript : MonoBehaviourPunCallbacks
         //pos = new Vector3(38, 0, 16);
         //GameObject o=PhotonNetwork.Instantiate(PlayerPrefs.GetString("PrefabName"), pos, Quaternion.identity);
         thePlayer = PhotonNetwork.Instantiate(playerPrefab.name, pos, Quaternion.identity);
-        if (thePlayer.GetComponent<PhotonView>().IsMine)
-        {
-            Debug.LogError("My player  "+ thePlayer.ToString());
-        }
-        else
-        {
-            Debug.LogError("not mine  " + thePlayer.ToString());
-        }
 
+        int p = UnityEngine.Random.Range(0, 10);
+        string Username = "TesingBot" + p.ToString();
+        PhotonNetwork.LocalPlayer.NickName = Username;
+        Debug.Log("1" + PhotonNetwork.LocalPlayer.NickName);
+
+        chat.GetComponent<Photon.Pun.Demo.PunBasics.ConnectedPlayers>().displayPlayers();
 
     }
 

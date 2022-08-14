@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using PlayFab;
 using PlayFab.ClientModels;
-using System;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class LoginPagePlayfab : MonoBehaviour
@@ -36,7 +36,13 @@ public class LoginPagePlayfab : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject.name == "PasswordLoginInputfield")
+        {
+            if (Input.GetKeyUp(KeyCode.Return))
+            {
+                Login();
+            }
+        }
     }
     #region Buttom Functions
     public void RegisterUser()

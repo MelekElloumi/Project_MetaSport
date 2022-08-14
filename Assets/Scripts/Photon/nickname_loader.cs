@@ -24,16 +24,11 @@ public class nickname_loader: MonoBehaviour
     }
     void Successs(GetAccountInfoResult result)
     {
-
-         Username = result.AccountInfo.Username;
-         PhotonNetwork.LocalPlayer.NickName = Username;
-
-
+        Username = result.AccountInfo.Username;
+        PhotonNetwork.LocalPlayer.NickName = Username;
     }
     void fail(PlayFabError error)
-    {
-
-        Debug.LogError(error.GenerateErrorReport());
+    { 
     }
 
 }

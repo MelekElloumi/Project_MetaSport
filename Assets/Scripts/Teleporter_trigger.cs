@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using TMPro;
+using Photon.Pun;
+
 public class Teleporter_trigger : MonoBehaviour
 {
     public GameObject panel;
@@ -9,9 +11,16 @@ public class Teleporter_trigger : MonoBehaviour
     public string scenename;
     private void OnTriggerEnter(Collider other)
     {
-        mouselocksys.GetComponent<Mouselock_controller>().locking();
-        panel.SetActive(true);
-        prompt.GetComponent<Text>().text= "Do you want to teleport to " + scenename+" ?";
+        if (other.GetComponent<PhotonView>() != null)
+        {
+            if (other.GetComponent<PhotonView>().IsMine)
+            {
+                mouselocksys.GetComponent<Mouselock_controller>().locking(false);
+                panel.SetActive(true);
+                prompt.GetComponent<TextMeshProUGUI>().text = "Do you want to teleport to " + scenename + " ?";
+            }
+        }
+        
     }
     public void TeleportYes()
     {
