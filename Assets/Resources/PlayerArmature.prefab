@@ -2039,6 +2039,7 @@ GameObject:
   - component: {fileID: 3373991440828441955}
   - component: {fileID: 7453951345172295610}
   - component: {fileID: 2106184222506467577}
+  - component: {fileID: 3480372245707385219}
   m_Layer: 8
   m_Name: PlayerArmature
   m_TagString: Player
@@ -2341,7 +2342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
+  ShowParameterInspector: 0
   m_SynchronizeParameters:
   - Type: 1
     SynchronizeType: 1
@@ -2387,6 +2388,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf21a6f26f737fa4cbce1cef9514a34f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3480372245707385219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7160939126304609801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5eba174e765bb547a91842f5db92b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7265248627109680244
