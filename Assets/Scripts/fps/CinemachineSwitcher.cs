@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
+using Photon.Pun;
 
 public class CinemachineSwitcher : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class CinemachineSwitcher : MonoBehaviour
     //[SerializeField] private InputAction action;
     private CinemachineFreeLook thirdpersoncamera;
     private CinemachineVirtualCamera fpscamera;
-
+    public PhotonView pv;
 
 
 
@@ -38,10 +39,14 @@ public class CinemachineSwitcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (pv.IsMine)
         {
-            SwitchPriority();
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                SwitchPriority();
+            }
         }
+        
     }
 
     private void SwitchPriority()

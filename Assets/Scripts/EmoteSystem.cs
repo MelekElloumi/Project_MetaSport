@@ -20,9 +20,14 @@ public class EmoteSystem : MonoBehaviour
             if (Input.GetKey(KeyCode.O) && Input.GetKey(KeyCode.I))
             {
                 anim.SetBool("Emoting", true);
-                anim.SetInteger("Emote_type", 1);
+                //anim.SetInteger("Emote_type", 1);
                 anim.Play("Waving");
+            }
+            if (Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.J))
+            {
                 anim.SetBool("Emoting", false);
+                //anim.SetInteger("Emote_type", 1);
+                //anim.Play("Waving");
             }
         }
         

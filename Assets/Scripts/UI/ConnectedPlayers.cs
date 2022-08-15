@@ -18,7 +18,6 @@ namespace Photon.Pun.Demo.PunBasics
         public GameObject dropdownobj;
         TMP_Dropdown playerlist;
         TextMeshProUGUI tmpcounter;
-        TMP_Dropdown.OptionData option;
         private void Start() {
             tmpcounter = playercounter.GetComponent<TextMeshProUGUI>();
             playerlist = dropdownobj.GetComponent<TMP_Dropdown>();
@@ -31,7 +30,7 @@ namespace Photon.Pun.Demo.PunBasics
                 playerlist.options.Add(new TMP_Dropdown.OptionData(player.NickName));
             }
             
-            updateplayercount(PhotonNetwork.CountOfPlayers);
+            updateplayercount(Mathf.Max(1, playerlist.options.Count));
             
         }
 
@@ -43,11 +42,11 @@ namespace Photon.Pun.Demo.PunBasics
        
         public override void OnPlayerEnteredRoom( Player other  )
 		    {
-                addPlayer(other.NickName, PhotonNetwork.CountOfPlayers+1);
+                addPlayer(other.NickName, playerlist.options.Count);
             }
         public override void OnPlayerLeftRoom( Player other  )
 		    {
-                removePlayer(other.NickName, PhotonNetwork.CountOfPlayers);
+                removePlayer(other.NickName, playerlist.options.Count);
 		    }
 
         void addPlayer(string name, int newcount)

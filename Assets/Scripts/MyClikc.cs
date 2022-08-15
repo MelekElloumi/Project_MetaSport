@@ -54,7 +54,7 @@ public class MyClikc : MonoBehaviour
 	}
 
 	void ShowNextCharacter(){
-		
+
 		Destroy(player);
 		
 		x = (x + 1) % myPrefab.Length;
@@ -110,6 +110,11 @@ public class MyClikc : MonoBehaviour
 		SceneManager.LoadScene("Game");
 	}
 
+	/*void OnApplicationFocus(bool hasFocus)
+	{
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
+	}*/
 
 }
 

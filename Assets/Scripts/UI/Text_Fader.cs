@@ -1,42 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-
+using TMPro;
+using Photon.Pun;
 public class Text_Fader : MonoBehaviour
 {
     public bool isfading=true;
-    public float minFadingDistance=10.0f;
-    public float maxFadingDistance=20.0f;
+    public float minFadingDistance=5.0f;
+    public float maxFadingDistance=15.0f;
     public bool isfacingatplayer=true;
+    public PhotonView pv;
     Color text_alpha;
-    Text text;
+    TextMeshPro text;
     Transform textTransform;
     // Start is called before the first frame update
     void Start()
     {
-        text= GetComponent<Text>();
+        text= GetComponent<TextMeshPro>();
         textTransform= GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (text != null)
-        {        
-            if (isfading)
-            {
-                text_alpha = text.color;
-                text_alpha.a=fadeout();
-                text.color = text_alpha;
-            }
-            
-        }
-        if (textTransform != null)
+        if (!pv.IsMine)
         {
-            if (isfacingatplayer)
+            if (text != null)
             {
-                facing();
+                if (isfading)
+                {
+                    text_alpha = text.color;
+                    text_alpha.a = fadeout();
+                    text.color = text_alpha;
+                }
+
+            }
+            if (textTransform != null)
+            {
+                if (isfacingatplayer)
+                {
+                    facing();
+                }
             }
         }
     }

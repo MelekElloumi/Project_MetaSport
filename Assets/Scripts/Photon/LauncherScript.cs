@@ -5,6 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 using Photon.Pun.UtilityScripts;
+using UnityEngine.SceneManagement;
 
 public class LauncherScript : MonoBehaviourPunCallbacks
 {
@@ -15,9 +16,14 @@ public class LauncherScript : MonoBehaviourPunCallbacks
     public GameObject thePlayer;
     public GameObject chat;
 
+    private string id_sync = "511ce637-76d1-4b19-a1d0-b27151453454";//for scene 2 use : eabb3d0c-d85f-459a-a185-77e3cc91b45e
+    private string id_voice = "6a4cdbdf-315f-4702-9a31-fda9eda2ca43";//for voice chat use :6a4cdbdf-315f-4702-9a31-fda9eda2ca43
+
     // Start is called before the first frame update
     void Start()
     {
+        PhotonNetwork.PhotonServerSettings.AppSettings.AppIdRealtime = id_sync;
+        PhotonNetwork.PhotonServerSettings.AppSettings.AppIdVoice = id_voice;
         Debug.Log(PhotonNetwork.PhotonServerSettings.AppSettings.AppIdRealtime);
         PhotonNetwork.ConnectUsingSettings();
     }
@@ -53,6 +59,16 @@ public class LauncherScript : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKey(KeyCode.Tab))
+        {
+            StartCoroutine(DisconnectAndLoad());
+        }
+    }
+    IEnumerator DisconnectAndLoad()
+    {
+        PhotonNetwork.Disconnect();
+        while (PhotonNetwork.IsConnected)
+            yield return null;
+        SceneManager.LoadScene("Kayak");
     }
 }

@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 378e6f5b30ae67c4da6848fcb2f8b455, type: 2}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 1911972851}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -1864,11 +1864,11 @@ MonoBehaviour:
   loadButton: {fileID: 1613866443}
   myPrefab:
   - {fileID: 7160939126304609801, guid: 628b5d788f47b124eb191ee07497cf7b, type: 3}
-  - {fileID: 7160939126304609801, guid: 97c215297054d6543a3da244b4d4c105, type: 3}
-  - {fileID: 7160939126304609801, guid: 2a89dc8f2d46ded43a4eca3f24edbb21, type: 3}
-  - {fileID: 7160939126304609801, guid: ad80740f36140334a86d2416453d5572, type: 3}
-  - {fileID: 7160939126304609801, guid: 3b39aa4b15845f042827b4b80a950557, type: 3}
-  - {fileID: 7160939126304609801, guid: 8b489e985a966eb4d8ce25fc214de3d8, type: 3}
+  - {fileID: 7160939126304609801, guid: e63a463868da1724f917261871e00647, type: 3}
+  - {fileID: 7160939126304609801, guid: 781bbf08e3cade54489d4c7fe52bb838, type: 3}
+  - {fileID: 7160939126304609801, guid: 890aeee80b234364287c9a1e73591a05, type: 3}
+  - {fileID: 7160939126304609801, guid: f46522c1a5147af40ad4c63ee441e11b, type: 3}
+  - {fileID: 7160939126304609801, guid: d6cf86f87def66f47a5645b6a6e9b875, type: 3}
   NickName: {fileID: 1025939464}
 --- !u!1 &884375929
 GameObject:
@@ -3121,7 +3121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1475450368
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3845,7 +3845,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

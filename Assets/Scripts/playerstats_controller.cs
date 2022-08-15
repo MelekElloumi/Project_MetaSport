@@ -7,6 +7,7 @@ public class playerstats_controller : MonoBehaviour
     [SerializeField] GameObject window;
     [SerializeField] GameObject username;
     [SerializeField] PhotonView playerPV;
+    [SerializeField] GameObject icon;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,17 @@ public class playerstats_controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (playerPV.IsMine)
+        {
+            if (Input.GetKey(KeyCode.T))
+            {
+                icon.SetActive(true);
+            }
+            if (Input.GetKeyUp(KeyCode.T))
+            {
+                icon.SetActive(false);
+            }
+        }
     }
     private void OnMouseDown()
     {
