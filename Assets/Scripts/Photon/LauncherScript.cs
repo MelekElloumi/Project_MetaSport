@@ -31,16 +31,20 @@ public class LauncherScript : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined a room successfully!");
-        pos = new Vector3(UnityEngine.Random.Range(-5,5), 0, UnityEngine.Random.Range(0,7));
+        pos = new Vector3(UnityEngine.Random.Range(-5,5), 0.1f, UnityEngine.Random.Range(0,7));
         //Debug.Log(pos);
         //pos = new Vector3(38, 0, 16);
-        //GameObject o=PhotonNetwork.Instantiate(PlayerPrefs.GetString("PrefabName"), pos, Quaternion.identity);
-        thePlayer = PhotonNetwork.Instantiate(playerPrefab.name, pos, Quaternion.identity);
+        thePlayer = PhotonNetwork.Instantiate(PlayerPrefs.GetString("PrefabName"), pos, Quaternion.identity);
+        //thePlayer = PhotonNetwork.Instantiate(playerPrefab.name, pos, Quaternion.identity);
+        //thePlayer = PhotonNetwork.Instantiate("Kate", pos, Quaternion.identity);
+        foreach(Transform child in thePlayer.transform.GetChild(0).GetChild(0).transform)
+        {
+            child.gameObject.layer = 7;
+        }
 
-        int p = UnityEngine.Random.Range(0, 10);
+        /*int p = UnityEngine.Random.Range(0, 10);
         string Username = "TesingBot" + p.ToString();
-        PhotonNetwork.LocalPlayer.NickName = Username;
-        Debug.Log("1" + PhotonNetwork.LocalPlayer.NickName);
+        PhotonNetwork.LocalPlayer.NickName = Username;*/
 
         chat.GetComponent<Photon.Pun.Demo.PunBasics.ConnectedPlayers>().displayPlayers();
 

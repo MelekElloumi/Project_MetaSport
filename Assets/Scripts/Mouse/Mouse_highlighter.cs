@@ -10,13 +10,20 @@ public class Mouse_highlighter : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (!Mouselock_controller.isLocked)
-            highlight.SetActive(true);
-        else
-            highlight.SetActive(false);
+        if (highlight != null)
+        {
+            if (!Mouselock_controller.isLocked)
+                highlight.SetActive(true);
+            else
+                highlight.SetActive(false);
+        }
+        
     }
     private void OnMouseExit()
     {
-        highlight.SetActive(false);
+        if (highlight != null)
+        {
+            highlight.SetActive(false);
+        }
     }
 }

@@ -49,7 +49,7 @@ public class Mouselock_controller : MonoBehaviour
         }
 
         Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.None;
         cursor.SetActive(false);
         cameraScript.enabled = false;
         player.enabled = false;

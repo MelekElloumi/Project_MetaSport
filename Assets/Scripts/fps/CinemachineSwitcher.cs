@@ -50,11 +50,19 @@ public class CinemachineSwitcher : MonoBehaviour
         {
             thirdpersoncamera.Priority = 0;
             fpscamera.Priority = 1;
-        }else
+            Invoke("changeculling", 2.0f);
+        }
+        else
         {
             thirdpersoncamera.Priority = 1;
             fpscamera.Priority = 0;
+            Invoke("changeculling", 0.5f);
         }
         thirdperson = !thirdperson; 
+    }
+
+    void changeculling()
+    {
+        Camera.main.cullingMask ^= 1 << LayerMask.NameToLayer("self");
     }
 }

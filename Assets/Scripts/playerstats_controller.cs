@@ -1,11 +1,11 @@
 using UnityEngine;
 using Photon.Pun;
-using UnityEngine.UI;
+using TMPro;
 public class playerstats_controller : MonoBehaviour
 {
     [SerializeField] GameObject canvas;
     [SerializeField] GameObject window;
-    [SerializeField] Text username;
+    [SerializeField] GameObject username;
     [SerializeField] PhotonView playerPV;
     // Start is called before the first frame update
     void Start()
@@ -14,7 +14,7 @@ public class playerstats_controller : MonoBehaviour
         {
             canvas.SetActive(false);
         }
-        username.text = playerPV.Owner.NickName;
+        username.GetComponent<TextMeshProUGUI>().text = playerPV.Owner.NickName;
     }
 
     // Update is called once per frame
