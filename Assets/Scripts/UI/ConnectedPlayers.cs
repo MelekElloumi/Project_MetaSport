@@ -16,9 +16,11 @@ namespace Photon.Pun.Demo.PunBasics
         //TODO: add private chat button, make display on click
         public GameObject playercounter;
         public GameObject dropdownobj;
+        Com.MyCompany.MyGame.ChatBox chatbox;
         TMP_Dropdown playerlist;
         TextMeshProUGUI tmpcounter;
         private void Start() {
+            chatbox = GetComponent<Com.MyCompany.MyGame.ChatBox>();
             tmpcounter = playercounter.GetComponent<TextMeshProUGUI>();
             playerlist = dropdownobj.GetComponent<TMP_Dropdown>();
             playerlist.ClearOptions();           
@@ -29,7 +31,7 @@ namespace Photon.Pun.Demo.PunBasics
             { 
                 playerlist.options.Add(new TMP_Dropdown.OptionData(player.NickName));
             }
-            
+            chatbox.LogServer("Welcome to MetaSport ^_^");
             updateplayercount(Mathf.Max(1, PhotonNetwork.CurrentRoom.PlayerCount));
             
         }
@@ -43,11 +45,13 @@ namespace Photon.Pun.Demo.PunBasics
         public override void OnPlayerEnteredRoom( Player other  )
 		    {
                 addPlayer(other.NickName, PhotonNetwork.CurrentRoom.PlayerCount);
-            }
+            chatbox.LogServer(other.NickName + " joined the server");
+        }
         public override void OnPlayerLeftRoom( Player other  )
 		    {
                 removePlayer(other.NickName, PhotonNetwork.CurrentRoom.PlayerCount);
-		    }
+            chatbox.LogServer(other.NickName + " left the server");
+        }
 
         void addPlayer(string name, int newcount)
         {

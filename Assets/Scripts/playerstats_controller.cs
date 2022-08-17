@@ -1,41 +1,36 @@
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
+using Photon.Voice;
+using Photon.Realtime;
 public class playerstats_controller : MonoBehaviour
 {
     [SerializeField] GameObject canvas;
     [SerializeField] GameObject window;
     [SerializeField] GameObject username;
     [SerializeField] PhotonView playerPV;
-    [SerializeField] GameObject icon;
     // Start is called before the first frame update
     void Start()
     {
+        username.GetComponent<TextMeshProUGUI>().text = playerPV.Owner.NickName;
         if (playerPV.IsMine)
         {
-            canvas.SetActive(false);
-        }
-        username.GetComponent<TextMeshProUGUI>().text = playerPV.Owner.NickName;
+            username.SetActive(false);
+        }    
+        window.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerPV.IsMine)
-        {
-            if (NonUIInput.GetKey(KeyCode.T))
-            {
-                icon.SetActive(true);
-            }
-            if (NonUIInput.GetKeyUp(KeyCode.T))
-            {
-                icon.SetActive(false);
-            }
-        }
+
     }
     private void OnMouseDown()
     {
-        window.SetActive(!window.activeInHierarchy);
+        if (!playerPV.IsMine)
+        {
+            window.SetActive(true);
+        }
     }
 
 }

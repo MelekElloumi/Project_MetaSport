@@ -16,8 +16,11 @@ public class LauncherScript : MonoBehaviourPunCallbacks
     public GameObject thePlayer;
     public GameObject chat;
 
-    private string id_sync = "511ce637-76d1-4b19-a1d0-b27151453454";//for scene 2 use : eabb3d0c-d85f-459a-a185-77e3cc91b45e
-    private string id_voice = "6a4cdbdf-315f-4702-9a31-fda9eda2ca43";//for voice chat use :6a4cdbdf-315f-4702-9a31-fda9eda2ca43
+     //moez: "511ce637-76d1-4b19-a1d0-b27151453454"
+     //moez voice: "6a4cdbdf-315f-4702-9a31-fda9eda2ca43"
+    
+    private string id_sync = "edf6e576-11c3-4581-9f40-2db714d8093e";//for scene 2 use : eabb3d0c-d85f-459a-a185-77e3cc91b45e
+    private string id_voice = "0479f8ae-df4b-4f5a-930a-0adfbef7e7b8";//for voice chat use :6a4cdbdf-315f-4702-9a31-fda9eda2ca43
 
     // Start is called before the first frame update
     void Start()
@@ -42,11 +45,15 @@ public class LauncherScript : MonoBehaviourPunCallbacks
         //pos = new Vector3(38, 0, 16);
         thePlayer = PhotonNetwork.Instantiate(PlayerPrefs.GetString("PrefabName"), pos, Quaternion.identity);
 
-        int p = UnityEngine.Random.Range(0, 10);
+        
+        if (PhotonNetwork.LocalPlayer.NickName == "")
+        {
+            int p = UnityEngine.Random.Range(0, 10);
         string Username = "TesingBot" + p.ToString();
         PhotonNetwork.LocalPlayer.NickName = Username;
+        }
 
-        thePlayer.name = PhotonNetwork.LocalPlayer.NickName;
+    thePlayer.name = PhotonNetwork.LocalPlayer.NickName;
 
         foreach (Transform child in thePlayer.transform.GetChild(0).GetChild(0).transform)
         {

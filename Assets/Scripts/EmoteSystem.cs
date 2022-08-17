@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-public class EmoteSystem : MonoBehaviour
+public class EmoteSystem : MonoBehaviourPun
 {
     PhotonView pv;
     Animator anim;
@@ -19,17 +19,17 @@ public class EmoteSystem : MonoBehaviour
         {
             if (NonUIInput.GetKeyDown(KeyCode.I))
             {
-                anim.SetBool("Emoting", true);
-                //anim.SetInteger("Emote_type", 1);
-                anim.Play("Waving");
+                photonView.RPC("Emote", RpcTarget.All);            
+
             }
-            if (NonUIInput.GetKeyDown(KeyCode.O))
-            {
-                anim.SetBool("Emoting", false);
-                //anim.SetInteger("Emote_type", 1);
-                //anim.Play("Waving");
-            }
+
         }
         
+    }
+
+    [PunRPC]
+    void Emote()
+    {
+        anim.SetTrigger("Emoting");
     }
 }

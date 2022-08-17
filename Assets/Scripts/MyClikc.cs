@@ -40,6 +40,7 @@ public class MyClikc : MonoBehaviour
 		player.GetComponent<ThirdPersonController>().enabled=false;
 		player.GetComponent<playerstats_controller>().enabled = false;
 		player.GetComponent<Mouse_highlighter>().enabled = false;
+		player.GetComponent<push2talk>().enabled = false;
 		player.transform.Rotate(new Vector3(0, 180, 0));
 
 		PlayerPrefs.SetString("PrefabName", myPrefab[x].name);
@@ -53,7 +54,17 @@ public class MyClikc : MonoBehaviour
 		mText.SetText(myPrefab[x].name);
 	}
 
-	void ShowNextCharacter(){
+    private void Update()
+    {
+		if (NonUIInput.GetKeyDown(KeyCode.LeftControl))
+		{
+			Cursor.visible = true;
+			Cursor.lockState = CursorLockMode.None;
+		}
+		
+	}
+
+    void ShowNextCharacter(){
 
 		Destroy(player);
 		
@@ -110,11 +121,6 @@ public class MyClikc : MonoBehaviour
 		SceneManager.LoadScene("Game");
 	}
 
-	/*void OnApplicationFocus(bool hasFocus)
-	{
-		Cursor.lockState = CursorLockMode.None;
-		Cursor.visible = true;
-	}*/
 
 }
 

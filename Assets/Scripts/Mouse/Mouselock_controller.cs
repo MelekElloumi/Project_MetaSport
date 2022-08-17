@@ -38,7 +38,16 @@ public class Mouselock_controller : MonoBehaviour
             {
                 locking(true);
             }
-        }   
+        }
+        else
+        {
+            if (isLocked)
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            
+        }
     }
     public void locking(bool control)
     {

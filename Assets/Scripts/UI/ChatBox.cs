@@ -49,5 +49,9 @@ namespace Com.MyCompany.MyGame
             tmplog.text += string.Format("<b>{0} :</b> {1}\n\n", playerName, message);
             tmpinput.text = "";
         }
+        public void LogServer(string message)
+        {
+            tmplog.text += string.Format("<b><color=green>{0}</color></b>\n\n", message);
+        }
     }
 }
