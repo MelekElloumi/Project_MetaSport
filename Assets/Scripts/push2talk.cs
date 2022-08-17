@@ -1,15 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using Photon.Voice.Unity;
 
 
 public class push2talk : MonoBehaviour
 {
-    public Recorder rec;
+    Recorder rec;
 
     void Start()
     {
+        rec=GetComponent<Recorder>();
         rec.TransmitEnabled = false;
     }
 
@@ -17,12 +17,12 @@ public class push2talk : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.T))
+        if (NonUIInput.GetKeyDown(KeyCode.T))
         {
             rec.TransmitEnabled = true;
 
         }
-        if (Input.GetKeyUp(KeyCode.T))
+        if (NonUIInput.GetKeyUp(KeyCode.T))
         {
             rec.TransmitEnabled = false;
 

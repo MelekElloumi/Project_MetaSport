@@ -19,7 +19,7 @@ public class Mouselock_controller : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (NonUIInput.GetKeyDown(KeyCode.LeftControl))
         {
             lockscreen();
         }

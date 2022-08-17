@@ -17,13 +17,13 @@ public class EmoteSystem : MonoBehaviour
     {
         if (pv.IsMine)
         {
-            if (Input.GetKey(KeyCode.O) && Input.GetKey(KeyCode.I))
+            if (NonUIInput.GetKeyDown(KeyCode.I))
             {
                 anim.SetBool("Emoting", true);
                 //anim.SetInteger("Emote_type", 1);
                 anim.Play("Waving");
             }
-            if (Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.J))
+            if (NonUIInput.GetKeyDown(KeyCode.O))
             {
                 anim.SetBool("Emoting", false);
                 //anim.SetInteger("Emote_type", 1);

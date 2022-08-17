@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using PlayFab;
 using PlayFab.ClientModels;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
@@ -27,22 +28,40 @@ public class LoginPagePlayfab : MonoBehaviour
     [SerializeField] TMP_InputField EmailRecoveryInput;  
     [SerializeField] GameObject RecoverPage;
 
-
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject.name == "PasswordLoginInputfield")
+        if (EventSystem.current.currentSelectedGameObject && EventSystem.current.currentSelectedGameObject.name == "PasswordLoginInputfield")
         {
             if (Input.GetKeyUp(KeyCode.Return))
             {
                 Login();
             }
         }
+
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            Selectable next = EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnDown();
+
+            if (next != null)
+            {
+
+                InputField inputfield = next.GetComponent<InputField>();
+                if (inputfield != null) inputfield.OnPointerClick(new PointerEventData(EventSystem.current));  //if it's an input field, also set the text caret
+
+                EventSystem.current.SetSelectedGameObject(next.gameObject, new BaseEventData(EventSystem.current));
+            }
+            //else Debug.Log("next nagivation element not found");
+
+        }
+
+
     }
     #region Buttom Functions
     public void RegisterUser()

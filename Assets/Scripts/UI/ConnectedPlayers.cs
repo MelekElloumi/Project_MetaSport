@@ -30,7 +30,7 @@ namespace Photon.Pun.Demo.PunBasics
                 playerlist.options.Add(new TMP_Dropdown.OptionData(player.NickName));
             }
             
-            updateplayercount(Mathf.Max(1, playerlist.options.Count));
+            updateplayercount(Mathf.Max(1, PhotonNetwork.CurrentRoom.PlayerCount));
             
         }
 
@@ -42,11 +42,11 @@ namespace Photon.Pun.Demo.PunBasics
        
         public override void OnPlayerEnteredRoom( Player other  )
 		    {
-                addPlayer(other.NickName, playerlist.options.Count);
+                addPlayer(other.NickName, PhotonNetwork.CurrentRoom.PlayerCount);
             }
         public override void OnPlayerLeftRoom( Player other  )
 		    {
-                removePlayer(other.NickName, playerlist.options.Count);
+                removePlayer(other.NickName, PhotonNetwork.CurrentRoom.PlayerCount);
 		    }
 
         void addPlayer(string name, int newcount)

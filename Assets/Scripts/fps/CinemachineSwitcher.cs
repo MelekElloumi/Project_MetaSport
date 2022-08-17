@@ -41,7 +41,7 @@ public class CinemachineSwitcher : MonoBehaviour
     {
         if (pv.IsMine)
         {
-            if (Input.GetKeyDown(KeyCode.P))
+            if (NonUIInput.GetKeyDown(KeyCode.P))
             {
                 SwitchPriority();
             }

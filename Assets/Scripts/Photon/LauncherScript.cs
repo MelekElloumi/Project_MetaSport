@@ -41,16 +41,19 @@ public class LauncherScript : MonoBehaviourPunCallbacks
         //Debug.Log(pos);
         //pos = new Vector3(38, 0, 16);
         thePlayer = PhotonNetwork.Instantiate(PlayerPrefs.GetString("PrefabName"), pos, Quaternion.identity);
-        //thePlayer = PhotonNetwork.Instantiate(playerPrefab.name, pos, Quaternion.identity);
-        //thePlayer = PhotonNetwork.Instantiate("Kate", pos, Quaternion.identity);
-        foreach(Transform child in thePlayer.transform.GetChild(0).GetChild(0).transform)
+
+        int p = UnityEngine.Random.Range(0, 10);
+        string Username = "TesingBot" + p.ToString();
+        PhotonNetwork.LocalPlayer.NickName = Username;
+
+        thePlayer.name = PhotonNetwork.LocalPlayer.NickName;
+
+        foreach (Transform child in thePlayer.transform.GetChild(0).GetChild(0).transform)
         {
             child.gameObject.layer = 7;
         }
 
-        /*int p = UnityEngine.Random.Range(0, 10);
-        string Username = "TesingBot" + p.ToString();
-        PhotonNetwork.LocalPlayer.NickName = Username;*/
+        
 
         chat.GetComponent<Photon.Pun.Demo.PunBasics.ConnectedPlayers>().displayPlayers();
 
@@ -59,10 +62,10 @@ public class LauncherScript : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Tab))
+        /*if (NonUIInput.GetKeyDown(KeyCode.Tab))
         {
             StartCoroutine(DisconnectAndLoad());
-        }
+        }*/
     }
     IEnumerator DisconnectAndLoad()
     {
@@ -71,4 +74,10 @@ public class LauncherScript : MonoBehaviourPunCallbacks
             yield return null;
         SceneManager.LoadScene("Kayak");
     }
+
+    /*void OnApplicationQuit()
+    {
+        PhotonNetwork.Disconnect();
+    }*/
+
 }

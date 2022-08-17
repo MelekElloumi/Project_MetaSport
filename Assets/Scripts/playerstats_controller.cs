@@ -23,11 +23,11 @@ public class playerstats_controller : MonoBehaviour
     {
         if (playerPV.IsMine)
         {
-            if (Input.GetKey(KeyCode.T))
+            if (NonUIInput.GetKey(KeyCode.T))
             {
                 icon.SetActive(true);
             }
-            if (Input.GetKeyUp(KeyCode.T))
+            if (NonUIInput.GetKeyUp(KeyCode.T))
             {
                 icon.SetActive(false);
             }
