@@ -1131,8 +1131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isfading: 1
-  minFadingDistance: 5
-  maxFadingDistance: 15
+  minFadingDistance: 15
+  maxFadingDistance: 30
   isfacingatplayer: 1
   pv: {fileID: 1893651841619886957}
 --- !u!1 &1501875376168710066
@@ -1420,7 +1420,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027070108032512110}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5499,6 +5499,8 @@ MonoBehaviour:
   window: {fileID: 5687327515602994486}
   username: {fileID: 1457801208382083521}
   playerPV: {fileID: 1893651841619886957}
+  myMesh: {fileID: 7736416272435228054}
+  myColor: {fileID: 2100000, guid: 085f0706ad3515b40a2be9b8d2775c26, type: 2}
 --- !u!114 &2106184222506467577
 MonoBehaviour:
   m_ObjectHideFlags: 0

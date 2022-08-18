@@ -11,20 +11,20 @@ public class Text_Fader : MonoBehaviour
     public bool isfacingatplayer=true;
     public PhotonView pv;
     Color text_alpha;
-    TextMeshPro text;
-    Transform textTransform;
+    TextMeshProUGUI text;
+    RectTransform textTransform;
     // Start is called before the first frame update
     void Start()
     {
-        text= GetComponent<TextMeshPro>();
-        textTransform= GetComponent<Transform>();
+        text= GetComponent<TextMeshProUGUI>();
+        textTransform= GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!pv.IsMine)
-        {
+        //if (!pv.IsMine)
+        //{
             if (text != null)
             {
                 if (isfading)
@@ -42,14 +42,14 @@ public class Text_Fader : MonoBehaviour
                     facing();
                 }
             }
-        }
+       // }
     }
     void facing()
     {
         Vector3 targetPostition = Camera.main.transform.position;
-        targetPostition.y = textTransform.position.y;
-        textTransform.LookAt(targetPostition);
+        textTransform.LookAt(targetPostition,new Vector3(0,1,0));
         textTransform.Rotate(0, 180, 0);
+
     }
     float fadeout()
     {

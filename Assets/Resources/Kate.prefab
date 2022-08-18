@@ -5174,7 +5174,8 @@ MonoBehaviour:
   window: {fileID: 5687327515602994486}
   username: {fileID: 1457801208382083521}
   playerPV: {fileID: 1893651841619886957}
-  icon: {fileID: 3789238021295604787}
+  myMesh: {fileID: 0}
+  myColor: {fileID: 0}
 --- !u!114 &2106184222506467577
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using System.Collections;
 using TMPro;
 using Photon.Pun;
 
-public class Teleporter_trigger : MonoBehaviour
+public class Teleporter_trigger : MonoBehaviourPunCallbacks
 {
     public GameObject panel;
     public GameObject prompt;
@@ -27,11 +27,20 @@ public class Teleporter_trigger : MonoBehaviour
     public void TeleportYes()
     {
         mouselocksys.GetComponent<Mouselock_controller>().deblocking();
-        //SceneManager.LoadScene(scenename);
-        StartCoroutine("Teleport");
-        panel.SetActive(false);
+        StartCoroutine(DisconnectAndLoad());
+        /*StartCoroutine("Teleport");
+        panel.SetActive(false);*/
 
     }
+
+    IEnumerator DisconnectAndLoad()
+    {
+        PhotonNetwork.Disconnect();
+        while (PhotonNetwork.IsConnected)
+            yield return null;
+        SceneManager.LoadScene(scenename);
+    }
+
 
     private IEnumerator Teleport()
     {

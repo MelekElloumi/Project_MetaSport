@@ -1288,6 +1288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea443853d3a959479ec4f9bb346bf31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pv: {fileID: 0}
 --- !u!1 &4365092337751758070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,6 +1664,7 @@ MonoBehaviour:
   minFadingDistance: 10
   maxFadingDistance: 20
   isfacingatplayer: 1
+  pv: {fileID: 0}
 --- !u!1 &5275786407349912152
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,6 +2084,7 @@ MonoBehaviour:
   minFadingDistance: 10
   maxFadingDistance: 20
   isfacingatplayer: 1
+  pv: {fileID: 0}
 --- !u!1 &5687327516009952174
 GameObject:
   m_ObjectHideFlags: 0
@@ -2978,6 +2981,8 @@ MonoBehaviour:
   window: {fileID: 5687327515602994486}
   username: {fileID: 5115886281783380196}
   playerPV: {fileID: 1893651841619886957}
+  myMesh: {fileID: 0}
+  myColor: {fileID: 0}
 --- !u!114 &2106184222506467577
 MonoBehaviour:
   m_ObjectHideFlags: 0
