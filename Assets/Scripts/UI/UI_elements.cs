@@ -40,6 +40,7 @@ public class UI_elements : MonoBehaviour
         player.GetComponent<CharacterController>().enabled = false;
         yield return new WaitForSeconds(0.01f);
         player.transform.position = target.position;
+        player.transform.eulerAngles = target.eulerAngles;
         yield return new WaitForSeconds(0.01f);
         player.GetComponent<CharacterController>().enabled = true;
     }

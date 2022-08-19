@@ -1664,7 +1664,7 @@ MonoBehaviour:
   minFadingDistance: 10
   maxFadingDistance: 20
   isfacingatplayer: 1
-  pv: {fileID: 0}
+  isreversefading: 0
 --- !u!1 &5275786407349912152
 GameObject:
   m_ObjectHideFlags: 0
@@ -2084,7 +2084,7 @@ MonoBehaviour:
   minFadingDistance: 10
   maxFadingDistance: 20
   isfacingatplayer: 1
-  pv: {fileID: 0}
+  isreversefading: 0
 --- !u!1 &5687327516009952174
 GameObject:
   m_ObjectHideFlags: 0
@@ -2981,8 +2981,13 @@ MonoBehaviour:
   window: {fileID: 5687327515602994486}
   username: {fileID: 5115886281783380196}
   playerPV: {fileID: 1893651841619886957}
-  myMesh: {fileID: 0}
-  myColor: {fileID: 0}
+  top_wear: {fileID: 0}
+  bottom_wear: {fileID: 0}
+  shoes: {fileID: 0}
+  i: 0
+  j: 0
+  k: 0
+  myColors: []
 --- !u!114 &2106184222506467577
 MonoBehaviour:
   m_ObjectHideFlags: 0
