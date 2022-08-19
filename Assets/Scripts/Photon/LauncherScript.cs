@@ -16,6 +16,7 @@ public class LauncherScript : MonoBehaviourPunCallbacks
     public GameObject thePlayer;
     public GameObject chat;
     public GameObject loadingPanel;
+    public playerstats_controller pc;
 
     //moez: "511ce637-76d1-4b19-a1d0-b27151453454"
     //moez voice: "6a4cdbdf-315f-4702-9a31-fda9eda2ca43"
@@ -52,8 +53,8 @@ public class LauncherScript : MonoBehaviourPunCallbacks
         pos = new Vector3(UnityEngine.Random.Range(-5,5), 0.1f, UnityEngine.Random.Range(0,7));
 
         thePlayer = PhotonNetwork.Instantiate(PlayerPrefs.GetString("PrefabName"), pos, Quaternion.identity);
+        pc = thePlayer.GetComponent<playerstats_controller>();
 
-        
         if (PhotonNetwork.LocalPlayer.NickName == "")
         {
             int p = UnityEngine.Random.Range(0, 10);

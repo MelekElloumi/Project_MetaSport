@@ -5513,8 +5513,25 @@ MonoBehaviour:
   window: {fileID: 5687327515602994486}
   username: {fileID: 1457801208382083521}
   playerPV: {fileID: 1893651841619886957}
-  myMesh: {fileID: 7736416272435228054}
-  myColor: {fileID: 2100000, guid: 085f0706ad3515b40a2be9b8d2775c26, type: 2}
+  top_wear: {fileID: 7736416272435228054}
+  bottom_wear: {fileID: 6654845758988875663}
+  shoes: {fileID: 4510484455550101559}
+  i: 0
+  j: 0
+  k: 0
+  myColors:
+  - {fileID: 2100000, guid: 65c304bcf7de9564bbeadb622197ef30, type: 2}
+  - {fileID: 2100000, guid: e3b9fd881e9306741866dab15c4d6f20, type: 2}
+  - {fileID: 2100000, guid: c18b22605f5bcd7459068ca707a43b50, type: 2}
+  - {fileID: 2100000, guid: 5062a40afa4234b4e91487762769db11, type: 2}
+  - {fileID: 2100000, guid: 5f575a3983647fe429eec099ed019ab2, type: 2}
+  - {fileID: 2100000, guid: 11a08f78d52d95845919b613868a6f1f, type: 2}
+  - {fileID: 2100000, guid: 96e15a3c385572045a06ffaccfcbd9a4, type: 2}
+  - {fileID: 2100000, guid: b05bf3fdd11108f47b971db78e0f3493, type: 2}
+  - {fileID: 2100000, guid: b57e4c45199c3c64dafc455fef1099fb, type: 2}
+  - {fileID: 2100000, guid: 3c0bf7f7394ba0043b4ac373abb410fa, type: 2}
+  - {fileID: 2100000, guid: d754cf01f70bb7a4982fae6e98ee28cf, type: 2}
+  - {fileID: 2100000, guid: 93101cafc70b0ea4c82ea54ee53ff8d7, type: 2}
 --- !u!114 &2106184222506467577
 MonoBehaviour:
   m_ObjectHideFlags: 0
