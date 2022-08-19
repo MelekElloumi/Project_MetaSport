@@ -994,6 +994,7 @@ GameObject:
   - component: {fileID: 8085524107129547592}
   - component: {fileID: 5889326174669544255}
   - component: {fileID: 1397673654611094975}
+  - component: {fileID: 945913539810475196}
   m_Layer: 5
   m_Name: username
   m_TagString: Untagged
@@ -1134,7 +1135,20 @@ MonoBehaviour:
   minFadingDistance: 15
   maxFadingDistance: 30
   isfacingatplayer: 1
-  pv: {fileID: 1893651841619886957}
+  isreversefading: 0
+--- !u!114 &945913539810475196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457801208382083521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee8209ea5fbed0c4a978bb8ab80a45da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  username: {fileID: 5889326174669544255}
 --- !u!1 &1501875376168710066
 GameObject:
   m_ObjectHideFlags: 0
@@ -3098,7 +3112,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0.1
-  MaxDistance: 7
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -3117,14 +3131,14 @@ AudioSource:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.83519065
-      value: 0.8193101
-      inSlope: -0.34444505
-      outSlope: -0.34444505
+      time: 0.4649557
+      value: 0.868622
+      inSlope: -0.25187728
+      outSlope: -0.25187728
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.11270623
-      outWeight: 0.33333334
+      inWeight: 0.33333334
+      outWeight: 0.26234713
     - serializedVersion: 3
       time: 1
       value: 0
@@ -4235,7 +4249,7 @@ MonoBehaviour:
   minFadingDistance: 10
   maxFadingDistance: 20
   isfacingatplayer: 1
-  pv: {fileID: 1893651841619886957}
+  isreversefading: 0
 --- !u!1 &5687327516808926702
 GameObject:
   m_ObjectHideFlags: 0
@@ -6900,4 +6914,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5637174754457576045}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 945913539810475196}
+        m_TargetAssemblyTypeName: private_message_player, Assembly-CSharp
+        m_MethodName: fillinput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

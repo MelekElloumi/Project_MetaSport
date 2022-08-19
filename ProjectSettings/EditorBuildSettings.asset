@@ -17,7 +17,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Kayak.unity
     guid: 4506f3451dc234140a903dacbeb30cff
-  - enabled: 1
-    path: Assets/Scenes/Kayak game.unity
-    guid: 32395bdc8ebb92f43999e4933794ccde
   m_configObjects: {}

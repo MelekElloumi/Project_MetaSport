@@ -8,6 +8,7 @@ TagManager:
   - CinemachineTarget
   - cursor
   - photonmanager
+  - chatmanager
   layers:
   - Default
   - TransparentFX

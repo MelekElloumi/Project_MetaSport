@@ -16,11 +16,11 @@ namespace Photon.Pun.Demo.PunBasics
         //TODO: add private chat button, make display on click
         public GameObject playercounter;
         public GameObject dropdownobj;
-        Com.MyCompany.MyGame.ChatBox chatbox;
+        ChatBox chatbox;
         TMP_Dropdown playerlist;
         TextMeshProUGUI tmpcounter;
         private void Start() {
-            chatbox = GetComponent<Com.MyCompany.MyGame.ChatBox>();
+            chatbox = GetComponent<ChatBox>();
             tmpcounter = playercounter.GetComponent<TextMeshProUGUI>();
             playerlist = dropdownobj.GetComponent<TMP_Dropdown>();
             playerlist.ClearOptions();           

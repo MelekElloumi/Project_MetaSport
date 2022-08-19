@@ -15,6 +15,7 @@ public class LauncherScript : MonoBehaviourPunCallbacks
     public Vector3 max = new Vector3(5, 0, 7);
     public GameObject thePlayer;
     public GameObject chat;
+    public GameObject loadingPanel;
 
     //moez: "511ce637-76d1-4b19-a1d0-b27151453454"
     //moez voice: "6a4cdbdf-315f-4702-9a31-fda9eda2ca43"
@@ -61,6 +62,7 @@ public class LauncherScript : MonoBehaviourPunCallbacks
         }
 
         thePlayer.name = PhotonNetwork.LocalPlayer.NickName;
+        thePlayer.GetComponent<AudioListener>().enabled = true;
 
         foreach (Transform child in thePlayer.transform.GetChild(0).GetChild(0).transform)
         {
@@ -70,6 +72,8 @@ public class LauncherScript : MonoBehaviourPunCallbacks
         
 
         chat.GetComponent<Photon.Pun.Demo.PunBasics.ConnectedPlayers>().displayPlayers();
+
+        loadingPanel.SetActive(false);
 
     }
 

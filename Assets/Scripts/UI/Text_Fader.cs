@@ -9,7 +9,7 @@ public class Text_Fader : MonoBehaviour
     public float minFadingDistance=5.0f;
     public float maxFadingDistance=15.0f;
     public bool isfacingatplayer=true;
-    public PhotonView pv;
+    public bool isreversefading = false;
     Color text_alpha;
     TextMeshProUGUI text;
     RectTransform textTransform;
@@ -23,8 +23,6 @@ public class Text_Fader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (!pv.IsMine)
-        //{
             if (text != null)
             {
                 if (isfading)
@@ -33,8 +31,14 @@ public class Text_Fader : MonoBehaviour
                     text_alpha.a = fadeout();
                     text.color = text_alpha;
                 }
+                if (isreversefading)
+                {
+                    text_alpha = text.color;
+                    text_alpha.a = reversefadeout();
+                    text.color = text_alpha;
+                }
 
-            }
+        }
             if (textTransform != null)
             {
                 if (isfacingatplayer)
@@ -42,12 +46,12 @@ public class Text_Fader : MonoBehaviour
                     facing();
                 }
             }
-       // }
     }
     void facing()
     {
         Vector3 targetPostition = Camera.main.transform.position;
-        textTransform.LookAt(targetPostition,new Vector3(0,1,0));
+        targetPostition.y= textTransform.position.y;
+        textTransform.LookAt(targetPostition);
         textTransform.Rotate(0, 180, 0);
 
     }
@@ -63,6 +67,21 @@ public class Text_Fader : MonoBehaviour
             return 0.0f;
         }
         return Mathf.Max(1-((dist - minFadingDistance) / (maxFadingDistance - minFadingDistance)), 0.0f);
+
+
+    }
+    float reversefadeout()
+    {
+        float dist = Vector3.Distance(Camera.main.transform.position, text.transform.position);
+        if (dist < minFadingDistance)
+        {
+            return 0.0f;
+        }
+        if (dist > maxFadingDistance)
+        {
+            return 1.0f;
+        }
+        return Mathf.Max(((dist - minFadingDistance) / (maxFadingDistance - minFadingDistance)), 0.0f);
 
 
     }
