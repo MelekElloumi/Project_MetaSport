@@ -26,3 +26,4 @@ on the features and infrastructure of our project.
 ![imgur](https://i.imgur.com/AvkdVUu.png)
 
 - Check a video demo of our work [here](https://drive.google.com/file/d/1bTs99vEMA5twO5wFDswP_1JYPUCt7AG5/view?usp=sharing)
+- Check my report of the internship [here](https://github.com/MelekElloumi/Project_MetaSport/blob/main/Report/Rapport_Talan.pdf)
